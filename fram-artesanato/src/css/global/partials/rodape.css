@@ -1,0 +1,5 @@
+.rodape {
+  padding-block: 2.5rem;
+  color: var(--branco);
+  background-color: var(--footer);
+}
