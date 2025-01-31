@@ -8,6 +8,9 @@
 @import url("partials/logo.css");
 @import url("partials/icon_carrinho.css");
 
+@import url("partials/pesquisar.css");
+@import url("partials/itens_pesquisa.css");
+
 @import url("partials/rodape.css");
 @import url("partials/info_rodape.css");
 

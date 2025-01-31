@@ -65,7 +65,7 @@
   color: var(--branco);
 }
 
-hr {
+.linha {
 	height: 1px;
   margin-top: 3rem;
 	margin-bottom: 1rem;

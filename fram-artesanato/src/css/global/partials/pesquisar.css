@@ -1,0 +1,41 @@
+.pesquisa_input {
+	margin-left: 1.6rem;
+}
+
+.centralizar {
+	display: flex;
+	align-items: center;
+}
+
+.input__procurar {
+	z-index: 1;
+	cursor: pointer;
+	border: none;
+	padding: 2px 6px 0 36px;
+	width: 80%;
+	font-size: 1.45rem;
+	background-color: transparent;
+}
+
+.input__procurar:focus {
+	border: none;
+	outline: none;
+}
+
+.input__procurar::placeholder {
+	color: var(--preto);
+}
+
+.img_lupa {
+	position: absolute;
+	cursor: pointer;
+	width: 26px;
+}
+
+.barra__pesquisa {
+	border: none;
+  margin-bottom: 2rem;
+	margin-left: -200px;
+	height: 2px;
+	background: var(--rosa);
+}
