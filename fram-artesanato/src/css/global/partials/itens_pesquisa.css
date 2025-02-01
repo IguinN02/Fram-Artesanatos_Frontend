@@ -22,17 +22,29 @@
 .details_pesquisado {
 	display: flex;
 	flex-direction: column;
+	word-break: break-word;
 	gap: 0.2rem;
 	font-size: 1.2rem;
-	word-break: break-word;
+	width: 200px;
+}
+
+.link_pesquisa {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	margin-top: 1rem;
+}
+
+.pesquisa_vermais {
+	cursor: pointer;
+	text-decoration: underline;
+	font-size: 1.3rem;
+	color: var(--cinza);
 }
 
 @media screen and (min-width: 1024px) {
 	.todos_produtos {
-		display: grid;
-		grid-template-columns: repeat(3, auto);
-		grid-template-rows: repeat(2, auto);
-		padding-inline: 2rem;
+		padding-inline: 4.5%;
 	}
 
 	.link {
@@ -44,7 +56,30 @@
 		height: 100px;
 	}
 
+	.pesquisa_vermais {
+		font-size: 1.3rem;
+	}
+}
+
+@media screen and (min-width: 1640px) {
+	.todos_produtos {
+		padding-inline: 4%;
+		gap: 26px;
+	}
+
+	.img_pesquisado {
+		border-radius: 4px;
+		width: 150px;
+		height: 150px;
+	}
+
 	.details_pesquisado {
-		width: 200px;
+		gap: 0.4rem;
+		font-size: 1.6rem;
+		width: 270px;
+	}
+
+	.pesquisa_vermais {
+		font-size: 1.6rem;
 	}
 }

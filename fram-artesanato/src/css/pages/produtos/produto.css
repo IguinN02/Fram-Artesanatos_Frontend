@@ -133,4 +133,8 @@
   .adicionar__carrinho__produto {
     font-size: 2.2rem;
   }
+
+  .produto_carregando {
+    font-size: 2.5rem;
+  }
 }

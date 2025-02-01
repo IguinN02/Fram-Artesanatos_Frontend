@@ -39,7 +39,7 @@
 }
 
 .nav-lista__item {
-	margin: 1.6rem 0 0 1.6rem;
+	margin: 1.6rem 0 0 0;
 }
 
 .nav-lista li:nth-child(2) a {
@@ -48,6 +48,10 @@
 
 .nav-lista li:nth-child(3) a {
 	transition: 0.5s 0.4s;
+}
+
+.test_pesq {
+	width: max-content;
 }
 
 @media screen and (min-width: 1024px) {
@@ -61,7 +65,7 @@
 	}
 
 	.nav-lista__item {
-		margin: 1.6rem 0 0.6rem 4rem;
+		margin: 1.6rem 0 0.6rem 0;
 	}
 
 	.titulo__procurar__botao {
@@ -80,7 +84,7 @@
 	}
 
 	.nav-lista__item {
-		margin: 2rem 0 1rem 4.5rem;
+		margin: 2rem 0 1rem 0;
 	}
 
 	.nav-lista a {

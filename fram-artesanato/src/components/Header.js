@@ -34,16 +34,22 @@ const Header = () => {
       const response = await axios.get(
         `https://fram-artesanatos-backend.onrender.com/produto`
       );
-      const produtosFiltrados = response.data.filter(produto =>
+
+      let produtosFiltrados = response.data.filter(produto =>
         produto.nome.toLowerCase().startsWith(text.toLowerCase())
       );
 
-      const quantidadeMaxima = window.innerWidth >= 1640 ? 8 : window.innerWidth >= 1024 ? 6 : produtosFiltrados.length;
-      setProdutos(produtosFiltrados.slice(0, quantidadeMaxima));
-
       if (produtosFiltrados.length === 0) {
-        setProdutos([]);
+        produtosFiltrados = response.data.filter(produto =>
+          produto.nome.toLowerCase().includes(text.toLowerCase())
+        );
       }
+
+      const quantidadeMaxima = window.innerWidth > 1024 ?
+        (window.innerWidth >= 1640 ? 9 : window.innerWidth >= 1125 ? 6 : 4)
+        : 4;
+
+      setProdutos(produtosFiltrados.slice(0, quantidadeMaxima));
 
       setLoading(false);
     } catch (error) {
@@ -81,13 +87,13 @@ const Header = () => {
                       onChange={handleInputChange}
                     />
                   </form>
-                  <hr className="barra__pesquisa" />
+                  <hr className="linha_pesquisa" />
                 </div>
 
-                {loading && <p className="nav-lista__item info_pesquisa">Carregando...</p>}
+                {loading && <p className="pesquisa_input info_pesquisa">Carregando...</p>}
 
                 {produtos.length > 0 && !loading && (
-                  <section className="todos_produtos">
+                  <div className="todos_produtos">
                     {produtos.map((produto) => (
                       <div key={produto.idproduto} className="item_pesquisado">
                         <Link className="link" to={`/produto/${produto.idproduto}/${encodeURIComponent(produto.nome)}`} onClick={() => setIsMenuOpen(false)}>
@@ -99,11 +105,15 @@ const Header = () => {
                         </Link>
                       </div>
                     ))}
-                  </section>
+
+                    <Link className="link_pesquisa" to={"/todosProdutos"}>
+                      <p className="pesquisa_vermais">Ver Mais</p>
+                    </Link>
+                  </div>
                 )}
 
                 {searchText.trim() !== "" && produtos.length === 0 && !loading && (
-                  <p className="nav-lista__item info_pesquisa">Nenhum produto encontrado</p>
+                  <p className="pesquisa_input info_pesquisa">Nenhum produto encontrado.</p>
                 )}
               </section>
 
@@ -111,13 +121,13 @@ const Header = () => {
                 <>
                   <li className="nav-lista__item">
                     <Link to="/todosProdutos" onClick={() => setIsMenuOpen(false)}>
-                      <p className="font">Todos os Produtos</p>
+                      <p className="pesquisa_input test_pesq">Todos os Produtos</p>
                     </Link>
                   </li>
 
                   <li className="nav-lista__item margin__baixo">
                     <Link to="/sobre-nos" onClick={() => setIsMenuOpen(false)}>
-                      <p className="font">Sobre Nós</p>
+                      <p className="pesquisa_input test_pesq">Sobre Nós</p>
                     </Link>
                   </li>
                 </>
