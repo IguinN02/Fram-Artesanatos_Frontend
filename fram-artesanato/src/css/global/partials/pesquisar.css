@@ -34,7 +34,7 @@
 
 .barra__pesquisa {
 	border: none;
-  margin-bottom: 2rem;
+	margin-bottom: 2rem;
 	margin-left: -200px;
 	height: 2px;
 	background: var(--rosa);
@@ -43,4 +43,15 @@
 .info_pesquisa {
 	font-size: 1.2rem;
 	margin-bottom: 1.2rem;
+}
+
+@media screen and (min-width: 1024px) {
+	.pesquisa_input {
+		margin-top: 1rem;
+		margin-left: 3.6rem;
+	}
+
+	.info_pesquisa {
+		font-size: 1.4rem;
+	}
 }

@@ -38,7 +38,7 @@ const Header = () => {
         produto.nome.toLowerCase().startsWith(text.toLowerCase())
       );
 
-      const quantidadeMaxima = window.innerWidth < 1024 ? 4 : produtosFiltrados.length;
+      const quantidadeMaxima = window.innerWidth >= 1640 ? 8 : window.innerWidth >= 1024 ? 6 : produtosFiltrados.length;
       setProdutos(produtosFiltrados.slice(0, quantidadeMaxima));
 
       if (produtosFiltrados.length === 0) {

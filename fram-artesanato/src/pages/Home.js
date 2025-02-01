@@ -180,15 +180,15 @@ function Home() {
           <h2 className="compartilhar__titulo">Compartilhe com a Gente</h2>
           <h2 className="compartilhar__subtitulo">#Fram<b>artesanatos</b></h2>
           <div className="compartilhar__fotos">
-            <img className="compartilhar__imagens" src="https://i.ibb.co/vxjJKv0/Roupao-Azul-Escuro.jpg" alt="Instagram" />
-            <img className="compartilhar__imagens" src="https://i.ibb.co/NFTszqD/Avental-Moranguinho.jpg" alt="Instagram" />
-            <img className="compartilhar__imagens" src="https://i.ibb.co/8mjhr3t/Pano-Prato-Verde-Escuro.jpg" alt="Instagram" />
-            <img className="compartilhar__imagens" src="https://i.ibb.co/7jy8R7T/Pano-Prato-Quadriculado-Azul.jpg" alt="Instagram" />
-            <img className="compartilhar__imagens" src="https://i.ibb.co/Bc9hMpt/Pano-Prato-Coracao-Rosa.jpg" alt="Instagram" />
-            <img className="compartilhar__imagens" src="https://i.ibb.co/J7pPZ2s/Pano-Prato-Roxo-Claro.jpg" alt="Instagram" />
+            <img className="compartilhar__imagens" src="https://i.ibb.co/vxjJKv0/Roupao-Azul-Escuro.jpg" alt="Instagram Foto" />
+            <img className="compartilhar__imagens" src="https://i.ibb.co/NFTszqD/Avental-Moranguinho.jpg" alt="Instagram Foto" />
+            <img className="compartilhar__imagens" src="https://i.ibb.co/8mjhr3t/Pano-Prato-Verde-Escuro.jpg" alt="Instagram Foto" />
+            <img className="compartilhar__imagens" src="https://i.ibb.co/7jy8R7T/Pano-Prato-Quadriculado-Azul.jpg" alt="Instagram Foto" />
+            <img className="compartilhar__imagens" src="https://i.ibb.co/Bc9hMpt/Pano-Prato-Coracao-Rosa.jpg" alt="Instagram Foto" />
+            <img className="compartilhar__imagens" src="https://i.ibb.co/J7pPZ2s/Pano-Prato-Roxo-Claro.jpg" alt="Instagram Foto" />
             <a
               className="compartilhar__botao"
-              href="https://www.instagram.com/framplima?igsh=MWRmZ24wZml6bXhmaQ=="
+              href="https://www.instagram.com"
               target="_blank"
               rel="noopener noreferrer">
               Siga-nos

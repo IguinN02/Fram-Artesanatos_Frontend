@@ -46,7 +46,7 @@ export const CarrinhoProvider = ({ children }) => {
     const total = subtotal + frete;
     mensagem += `\n*Subtotal:* R$${subtotal.toFixed(2)}\n*Total:* R$${total.toFixed(2)}\n\nObrigado por comprar!\nGostaria de algo mais personalizado?`;
 
-    window.open(`https://wa.me/5511971195011?text=${encodeURIComponent(mensagem)}`, "_blank");
+    window.open(`https://wa.me/5511942957858?text=${encodeURIComponent(mensagem)}`, "_blank");
   };
 
   return (

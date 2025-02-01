@@ -3,11 +3,15 @@ import { Link } from 'react-router-dom';
 
 const Rodape = () => {
   const redesSociais = [
-    { href: "https://www.instagram.com/framplima?igsh=MWRmZ24wZml6bXhmaQ==", imgSrc: "/images/pages/index/instagram-icon.svg", alt: "Instagram" },
+    { href: "https://br.pinterest.com", imgSrc: "/images/pages/index/pinterest-icon.svg", alt: "Pinterest" },
+    { href: "https://www.facebook.com", imgSrc: "/images/pages/index/facebook-icon.svg", alt: "Facebook" },
+    { href: "https://wa.me/5511942957858", imgSrc: "/images/pages/index/whatsapp-icon.svg", alt: "Whatsapp" },
+    { href: "https://www.instagram.com", imgSrc: "/images/pages/index/instagram-icon.svg", alt: "Instagram" },
+    { href: "https://twitter.com", imgSrc: "/images/pages/index/twitter-icon.svg", alt: "Twitter" },
   ];
 
   const contatos = [
-    { tipo: "Telefone", href: "https://wa.me/5511971195011", numero: "+55 (11) 97119-5011", imgSrc: "/images/pages/index/icon_footer (1).png" },
+    { tipo: "Telefone", href: "https://wa.me/5511942957858", numero: "+55 (11) 94295-7858", imgSrc: "/images/pages/index/icon_footer (1).png" },
     { tipo: "E-Mail", href: "mailto:framartesanatos00@gmail.com?subject=Duvida&body=Gostaria de saber mais sobre seus serviços.", numero: "framartesanatos00@gmail.com", imgSrc: "/images/pages/index/icon_footer (2).png" }
   ];
 
@@ -67,7 +71,7 @@ const Rodape = () => {
         <p className="creditos1">@ 2024 Fram Artesanatos</p>
         <div className="creditos">
           <p className="creditos2">Política de Privacidade</p>
-          <p className="creditos3">Termos e Condições</p>
+          <p className="creditos2">Termos e Condições</p>
         </div>
       </div>
     </footer>

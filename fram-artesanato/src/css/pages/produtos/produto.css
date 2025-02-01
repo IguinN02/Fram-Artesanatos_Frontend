@@ -65,6 +65,18 @@
   box-shadow: 0 0 15px 5px var(--rosa);
 }
 
+.produto_carregando {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-block: 1rem;
+  margin-inline: 1rem;
+  border-radius: 12px;
+  background-color: var(--branco)
+}
+
 @media screen and (min-width: 1024px) {
   .produto {
     padding: 0;
@@ -88,6 +100,15 @@
 
   .adicionar__carrinho__produto {
     padding-inline: 1vw;
+  }
+
+  .produto_carregando {
+    font-size: 2rem;
+    margin-top: 9rem;
+    margin-bottom: 3rem;
+    padding-block: 2rem;
+    margin-inline: 8rem;
+    border-radius: 12px;
   }
 }
 

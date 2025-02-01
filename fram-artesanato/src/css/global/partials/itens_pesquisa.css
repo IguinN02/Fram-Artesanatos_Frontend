@@ -2,20 +2,20 @@
 	display: flex;
 	flex-wrap: wrap;
 	margin-top: 2rem;
-  margin-bottom: 2rem;
-  gap: 16px;
+	margin-bottom: 2rem;
+	gap: 16px;
 }
 
 .img_pesquisado {
-  width: 80px;
-  height: 80px;
+	width: 80px;
+	height: 80px;
 }
 
 .link {
-  display: flex;
+	display: flex;
 	flex-direction: row;
 	align-items: center;
-  margin-inline: 1.5rem;
+	margin-inline: 1.5rem;
 	gap: 1.4rem;
 }
 
@@ -23,6 +23,28 @@
 	display: flex;
 	flex-direction: column;
 	gap: 0.2rem;
-  font-size: 1.2rem;
-  word-break: break-word;
+	font-size: 1.2rem;
+	word-break: break-word;
+}
+
+@media screen and (min-width: 1024px) {
+	.todos_produtos {
+		display: grid;
+		grid-template-columns: repeat(3, auto);
+		grid-template-rows: repeat(2, auto);
+		padding-inline: 2rem;
+	}
+
+	.link {
+		gap: 1rem;
+	}
+
+	.img_pesquisado {
+		width: 100px;
+		height: 100px;
+	}
+
+	.details_pesquisado {
+		width: 200px;
+	}
 }

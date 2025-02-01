@@ -52,10 +52,10 @@ const SobreNos = () => {
           </p>
 
           <p className="contato__numero contatos">
-            <a href="https://wa.me/5511971195011" target="_blank" rel="noopener noreferrer">+55 (11) 97119-5011</a>
+            <a href="https://wa.me/5511942957858" target="_blank" rel="noopener noreferrer">Telefone: +55 (11) 94295-7858</a>
           </p>
           <p className="contato__email contatos">
-            <a href="mailto:framartesanatos00@gmail.com?subject=Duvida&body=Gostaria de saber mais sobre seus serviços." target="_blank" rel="noopener noreferrer">framartesanatos00@gmail.com</a>
+            <a href="mailto:framartesanatos00@gmail.com?subject=Duvida&body=Gostaria de saber mais sobre seus serviços." target="_blank" rel="noopener noreferrer">E-Mail: framartesanatos00@gmail.com</a>
           </p>
         </section>
       </section>

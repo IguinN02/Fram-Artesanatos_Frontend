@@ -50,7 +50,7 @@ function Produto() {
     setTimeout(() => setPopupMessage(null), 6000);
   };
 
-  if (!produto || produtosCarrossel.length === 0) return <div>Carregando...</div>;
+  if (!produto || produtosCarrossel.length === 0) return <div className='produto_carregando'>Carregando...</div>;
 
   return (
     <div>

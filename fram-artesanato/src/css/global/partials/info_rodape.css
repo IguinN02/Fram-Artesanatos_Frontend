@@ -89,6 +89,10 @@
   margin: 1.5rem 0;
 }
 
+.creditos2 {
+  text-align: center;
+}
+
 @media screen and (min-width: 1024px) {
 
   .titulo__sub,
