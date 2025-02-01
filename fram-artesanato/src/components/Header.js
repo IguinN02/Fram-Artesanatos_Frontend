@@ -6,6 +6,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [produtos, setProdutos] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -27,18 +28,27 @@ const Header = () => {
       return;
     }
 
+    setLoading(true);
+
     try {
       const response = await axios.get(
         `https://fram-artesanatos-backend.onrender.com/produto`
       );
-      const produtosFiltrados = response.data.filter((produto) =>
-        produto.nome.toLowerCase().includes(text.toLowerCase())
+      const produtosFiltrados = response.data.filter(produto =>
+        produto.nome.toLowerCase().startsWith(text.toLowerCase())
       );
 
       const quantidadeMaxima = window.innerWidth < 1024 ? 4 : produtosFiltrados.length;
       setProdutos(produtosFiltrados.slice(0, quantidadeMaxima));
+
+      if (produtosFiltrados.length === 0) {
+        setProdutos([]);
+      }
+
+      setLoading(false);
     } catch (error) {
       console.error("Erro ao buscar produtos:", error);
+      setLoading(false);
     }
   };
 
@@ -74,11 +84,13 @@ const Header = () => {
                   <hr className="barra__pesquisa" />
                 </div>
 
-                {produtos.length > 0 && (
+                {loading && <p className="nav-lista__item info_pesquisa">Carregando...</p>}
+
+                {produtos.length > 0 && !loading && (
                   <section className="todos_produtos">
                     {produtos.map((produto) => (
                       <div key={produto.idproduto} className="item_pesquisado">
-                        <Link className="link" to={`/produto/${produto.idproduto}`} onClick={() => setIsMenuOpen(false)}>
+                        <Link className="link" to={`/produto/${produto.idproduto}/${encodeURIComponent(produto.nome)}`} onClick={() => setIsMenuOpen(false)}>
                           <img className="img_pesquisado" src={produto.imagens} alt={produto.nome} />
                           <div className="item-details details_pesquisado">
                             <h3 className="nome_pesquisado">{produto.nome}</h3>
@@ -88,6 +100,10 @@ const Header = () => {
                       </div>
                     ))}
                   </section>
+                )}
+
+                {searchText.trim() !== "" && produtos.length === 0 && !loading && (
+                  <p className="nav-lista__item info_pesquisa">Nenhum produto encontrado</p>
                 )}
               </section>
 
