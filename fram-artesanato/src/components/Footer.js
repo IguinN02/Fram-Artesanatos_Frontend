@@ -12,7 +12,10 @@ const Rodape = () => {
 
   const contatos = [
     { tipo: "Telefone", href: "https://wa.me/5511942957858", numero: "+55 (11) 94295-7858", imgSrc: "/images/pages/index/icon_footer (1).png" },
-    { tipo: "E-Mail", href: "mailto:framartesanatos00@gmail.com?subject=Duvida&body=Gostaria de saber mais sobre seus serviços.", numero: "framartesanatos00@gmail.com", imgSrc: "/images/pages/index/icon_footer (2).png" }
+    { tipo: "E-Mail", href: "mailto:framartesanatos00@gmail.com?subject=Duvida&body=Gostaria de saber mais sobre seus serviços.", numero: "framartesanatos00@gmail.com", imgSrc: "/images/pages/index/icon_footer (2).png" },
+    {
+      tipo: "Local", href: "https://www.google.com/maps/place/R.+Narcise+Carbonel,+717+-+Jardim+Monte+Belo,+S%C3%A3o+Paulo+-+SP,+05266-020/@-23.4461481,-46.8034576,17z/data=!3m1!4b1!4m6!3m5!1s0x94cefd0e8307fda9:0x285536089eddee23!8m2!3d-23.446153!4d-46.8008827!16s%2Fg%2F11c1bmr1qz?entry=tts&g_ep=EgoyMDI0MDkxMC4wKgBIAVAD", numero: "Brasil, São Paulo, São Paulo, Parque Esperança, R. Narcise Carbonel, N°717", imgSrc: "/images/pages/index/icon_footer (3).png"
+    }
   ];
 
   const ajudaLinks = [

@@ -36,6 +36,7 @@
   margin-top: 2rem;
   line-height: 30px;
   padding-inline: 3rem;
+  gap: 2px;
 }
 
 .num_email__local a {
