@@ -3,6 +3,7 @@
   grid-template-columns: repeat(2, auto);
   grid-template-rows: repeat(auto, auto);
   justify-content: center;
+  justify-items: center;
   overflow: hidden;
   background-color: var(--branco);
 }
@@ -19,6 +20,7 @@
 .produto__link {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 20px;
   font-size: 1.013rem;
   color: var(--preto);
@@ -81,6 +83,7 @@
   .produtos__1 {
     padding-inline: 2rem;
     margin: 2rem 0;
+    width: 17rem;
   }
 
   .produto__titulo {
@@ -90,5 +93,10 @@
   .produto__descricao,
   .produto__valor {
     font-size: 1.1rem;
+  }
+
+  .produto__img {
+    height: 14rem;
+    width: 14rem;
   }
 }

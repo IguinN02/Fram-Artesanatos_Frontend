@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Header = () => {
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [produtos, setProdutos] = useState([]);
@@ -19,9 +20,17 @@ const Header = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchText.trim() !== '') {
+      navigate(`/todosProdutos?search=${encodeURIComponent(searchText)}`);
+    }
+  };
+
   const handleInputChange = async (e) => {
     const text = e.target.value;
-    setSearchText(text.charAt(0).toUpperCase() + text.slice(1));
+    const capitalizedText = text.charAt(0).toUpperCase() + text.slice(1);
+    setSearchText(capitalizedText);
 
     if (text.trim() === "") {
       setProdutos([]);
@@ -29,39 +38,53 @@ const Header = () => {
     }
 
     setLoading(true);
-
     try {
       const response = await axios.get(
         `https://fram-artesanatos-backend.onrender.com/produto`
       );
 
-      let produtosFiltrados = response.data.filter(produto =>
+      let produtosFiltrados = response.data.filter((produto) =>
         produto.nome.toLowerCase().startsWith(text.toLowerCase())
       );
 
       if (produtosFiltrados.length === 0) {
-        produtosFiltrados = response.data.filter(produto =>
+        produtosFiltrados = response.data.filter((produto) =>
           produto.nome.toLowerCase().includes(text.toLowerCase())
         );
       }
 
-      const quantidadeMaxima = window.innerWidth > 1024 ?
-        (window.innerWidth >= 1640 ? 9 : window.innerWidth >= 1125 ? 6 : 4)
-        : 4;
+      const quantidadeMaxima =
+        window.innerWidth > 1024
+          ? window.innerWidth >= 1640
+            ? 9
+            : window.innerWidth >= 1125
+              ? 6
+              : 4
+          : 4;
 
       setProdutos(produtosFiltrados.slice(0, quantidadeMaxima));
-
-      setLoading(false);
     } catch (error) {
       console.error("Erro ao buscar produtos:", error);
+    } finally {
       setLoading(false);
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      navigate(`/todosProdutos?search=${encodeURIComponent(searchText)}`);
+      setIsMenuOpen(false);
     }
   };
 
   return (
     <header className="cabecalho">
       <nav className={`cabecalho__nav ${isMenuOpen ? "active" : ""}`}>
-        <button className="cabecalho__nav__menu_hamburguer" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        <button
+          className="cabecalho__nav__menu_hamburguer"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
           <div className={`mobile-menu ${isMenuOpen ? "active" : ""}`}>
             <div className="line1"></div>
             <div className="line2"></div>
@@ -77,7 +100,11 @@ const Header = () => {
               <section className="box_pesquisa">
                 <div className="pesquisa_input">
                   <form className="centralizar search-box">
-                    <img className="img_lupa" src="images/global/icon_lupa.svg" alt="Lupa" />
+                    <img
+                      className="img_lupa"
+                      src="images/global/icon_lupa.svg"
+                      alt="Lupa"
+                    />
                     <input
                       className="input__procurar search-box"
                       type="text"
@@ -85,36 +112,64 @@ const Header = () => {
                       maxLength="50"
                       value={searchText}
                       onChange={handleInputChange}
+                      onKeyDown={handleKeyDown}
                     />
                   </form>
                   <hr className="linha_pesquisa" />
                 </div>
 
-                {loading && <p className="pesquisa_input info_pesquisa">Carregando...</p>}
+                {loading && (
+                  <p className="pesquisa_input info_pesquisa">Carregando...</p>
+                )}
 
                 {produtos.length > 0 && !loading && (
                   <div className="todos_produtos">
                     {produtos.map((produto) => (
                       <div key={produto.idproduto} className="item_pesquisado">
-                        <Link className="link" to={`/produto/${produto.idproduto}/${encodeURIComponent(produto.nome)}`} onClick={() => setIsMenuOpen(false)}>
-                          <img className="img_pesquisado" src={produto.imagens} alt={produto.nome} />
+                        <Link
+                          className="link"
+                          to={`/produto/${produto.idproduto}/${encodeURIComponent(
+                            produto.nome
+                          )}`}
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          <img
+                            className="img_pesquisado"
+                            src={produto.imagens}
+                            alt={produto.nome}
+                          />
                           <div className="item-details details_pesquisado">
                             <h3 className="nome_pesquisado">{produto.nome}</h3>
-                            <p className="preco_pesquisado">R${Number(produto.preco).toFixed(2)}</p>
+                            <p className="preco_pesquisado">
+                              R${Number(produto.preco).toFixed(2)}
+                            </p>
                           </div>
                         </Link>
                       </div>
                     ))}
 
-                    <Link className="link_pesquisa" to={"/todosProdutos"}>
+                    <Link
+                      className="link_pesquisa"
+                      to={`/todosProdutos?search=${encodeURIComponent(searchText)}`}
+                      onClick={(e) => {
+                        if (searchText.trim() !== '') {
+                          handleSearch(e);
+                        }
+                        setIsMenuOpen(false);
+                      }}
+                    >
                       <p className="pesquisa_vermais">Ver Mais</p>
                     </Link>
                   </div>
                 )}
 
-                {searchText.trim() !== "" && produtos.length === 0 && !loading && (
-                  <p className="pesquisa_input info_pesquisa">Nenhum produto encontrado.</p>
-                )}
+                {searchText.trim() !== "" &&
+                  produtos.length === 0 &&
+                  !loading && (
+                    <p className="pesquisa_input info_pesquisa">
+                      Nenhum produto encontrado.
+                    </p>
+                  )}
               </section>
 
               {searchText.trim() === "" && (
@@ -143,8 +198,16 @@ const Header = () => {
         </h1>
 
         <section className="botao__carrinho">
-          <Link to="/carrinho" className="botoes__carrinho" onClick={() => setIsMenuOpen(false)}>
-            <img className="cabecalho__nav__carrinho_img" src="/images/global/icon_carrinho.svg" alt="Carrinho de compras" />
+          <Link
+            to="/carrinho"
+            className="botoes__carrinho"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <img
+              className="cabecalho__nav__carrinho_img"
+              src="/images/global/icon_carrinho.svg"
+              alt="Carrinho de compras"
+            />
           </Link>
         </section>
       </nav>

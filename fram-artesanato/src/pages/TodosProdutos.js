@@ -1,35 +1,43 @@
-import React, { useEffect, useState, useContext } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation, Link } from 'react-router-dom';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-import { CarrinhoContext } from '../context/CarrinhoContext.js';
-import Popup from '../components/Popup.js';
 
 const TodosProdutos = () => {
   const [produtos, setProdutos] = useState([]);
-  const [popupMessage, setPopupMessage] = useState(null);
-  const { adicionarAoCarrinho, produtoJaNoCarrinho } = useContext(CarrinhoContext);
+  const location = useLocation();
+
+  const searchParams = new URLSearchParams(location.search);
+  const searchQuery = searchParams.get('search');
 
   useEffect(() => {
     document.title = 'Fram Artesanatos - Todos os Produtos';
     axios
       .get('https://fram-artesanatos-backend.onrender.com/produto')
-      .then(({ data }) => setProdutos(data))
+      .then(({ data }) => {
+        if (searchQuery) {
+          const produtosFiltrados = data.filter((produto) =>
+            produto.nome.toLowerCase().includes(searchQuery.toLowerCase())
+          );
+          setProdutos(produtosFiltrados);
+        } else {
+          setProdutos(data);
+        }
+      })
       .catch((erro) => console.error('Erro ao buscar os produtos:', erro));
-  }, []);
-
-  const handleAdicionarAoCarrinho = (produto) => {
-    const mensagem = produtoJaNoCarrinho(produto.idproduto) ? 'jaAdicionado' : 'adicionado';
-    setPopupMessage(mensagem);
-    if (!produtoJaNoCarrinho(produto.idproduto)) {
-      adicionarAoCarrinho(produto);
-    }
-    setTimeout(() => setPopupMessage(null), 6000);
-  };
+  }, [searchQuery]);
 
   return (
     <div>
       <main className="principal margin_fixed">
         <section className="produtos">
+          {searchQuery && (
+            <div className='pesquisa_todos'>
+              <p className='texto_pesquisa'>
+                Resultados da busca por: "{searchQuery}"
+              </p>
+            </div>
+          )}
+
           {produtos.map(({ idproduto, imagens, nome, descricao, preco }) => (
             <div key={idproduto} className="produtos__1">
               <Link to={`/produto/${idproduto}/${encodeURIComponent(nome)}`} className="produto__link">
@@ -40,18 +48,10 @@ const TodosProdutos = () => {
                   <p className="produto__valor">R${Number(preco).toFixed(2)}</p>
                 </div>
               </Link>
-              <button
-                className="adicionar__carrinho"
-                onClick={() => handleAdicionarAoCarrinho({ idproduto, imagens, nome, descricao, preco })}
-              >
-                Adicionar ao Carrinho
-              </button>
             </div>
           ))}
         </section>
       </main>
-
-      <Popup tipo={popupMessage} fechar={() => setPopupMessage(null)} />
     </div>
   );
 };
