@@ -20,6 +20,8 @@
 
 /* tod0_produtos */
 @import url("../css/pages/todos_produtos/produtos.css");
+@import url("../css/pages/todos_produtos/filtro.css");
+@import url(../css/pages/todos_produtos/itens_filtro.css);
 
 /* gerenciar_produtos */
 @import url("../css/pages/geranciar/opcoes.css");

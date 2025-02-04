@@ -1,0 +1,70 @@
+.filtros.active .botao_filtros {
+  position: absolute;
+  z-index: 1;
+  width: 80px;
+  height: 56px;
+  background-color: var(--rosa);
+  background-size: 20px;
+  background-image: url('/public/images/global/close_icon_black.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.filtros.active .botao_filtro_texto {
+  display: none;
+}
+
+.filtros.active .botao_filtros {
+  margin-left: 81vw;
+  transition: 1s;
+  border: none;
+}
+
+.filtros.active {
+  border: none;
+  padding: 0;
+}
+
+.filtros.active .filtros_lista {
+  display: block;
+  opacity: 1;
+}
+
+.radio-label,
+.ordenar-select {
+  cursor: pointer;
+}
+
+.filtros {
+  border: 4px solid var(--rosa);
+  border-left: 8px solid var(--rosa);
+  border-right: none;
+  padding: .6rem 0 .6rem 1.6rem;
+  background-color: var(--branco);
+}
+
+.botao_filtros {
+  border: none;
+  transition: 1s;
+  background-color: var(--branco);
+}
+
+.botao_filtro_texto {
+  font-family: var(--fonte-principal);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.filtros_lista {
+  display: none;
+  opacity: 0;
+}
+
+.filtro_lista_titulo {
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 1rem 0 1rem 2rem;
+  width: 100%;
+  color: var(--branco);
+  background-color: var(--rosa);
+}
