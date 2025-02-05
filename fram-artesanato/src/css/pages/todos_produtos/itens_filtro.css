@@ -1,15 +1,13 @@
 .filtro_lista_item {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding-inline: 2rem;
 }
 
 .filtro {
   border-radius: 12px;
   padding: 1.4rem;
   margin-bottom: 1.5rem;
-  width: 100%;
-  max-width: 300px;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
   background-color: var(--cor-de-fundo);
 }
@@ -61,6 +59,10 @@
 
 .mb {
   margin-bottom: 0;
+}
+
+.ççç {
+  width: 100%;
 }
 
 @media screen and (min-width: 1024px) {

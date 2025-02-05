@@ -77,11 +77,21 @@
   padding-inline: 1rem;
 }
 
+.sem-produtos {
+  margin-block: 2rem;
+  padding-inline: 1rem;
+  text-align: center;
+}
+
 @media screen and (min-width: 1024px) {
   .produtos {
     margin: 8vh 15vw;
     padding: 5vh 2vw;
     border-radius: 12px;
+  }
+
+  .sem-produtos {
+    font-size: 1.5rem;
   }
 }
 
