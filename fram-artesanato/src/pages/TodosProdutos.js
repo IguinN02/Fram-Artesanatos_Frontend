@@ -14,7 +14,7 @@ const TodosProdutos = () => {
   const searchQuery = searchParams.get('search');
 
   useEffect(() => {
-    document.title = 'Fram Artesanatos - Todos os Produtos';
+    document.title = 'Fran Artesanatos - Todos os Produtos';
     axios
       .get('https://fram-artesanatos-backend.onrender.com/produto')
       .then(({ data }) => {
@@ -47,6 +47,24 @@ const TodosProdutos = () => {
       .catch((erro) => console.error('Erro ao buscar os produtos:', erro));
   }, [searchQuery, faixaPreco, categoria, ordenacao]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 1639) {
+        setIsMenuOpen(true);
+      } else {
+        setIsMenuOpen(false);
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const ordenarProdutos = (produtos, criterio) => {
     const produtosOrdenados = [...produtos];
     if (criterio === 'menorMaior') {
@@ -62,7 +80,7 @@ const TodosProdutos = () => {
   };
 
   return (
-    <main className="principal margin_fixed">
+    <main className="principal new_design">
 
       <section className={`filtros ${isMenuOpen ? "active" : ""}`}>
         <button className="botao_filtros" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -75,147 +93,151 @@ const TodosProdutos = () => {
           <h2 className="filtro_lista_titulo">Filtros</h2>
 
           <li className="filtro_lista_item">
-            <div className="ordenacao">
-              <label htmlFor="ordenar" className="filtro-label">Ordenar por:</label>
-              <select
-                id="ordenar"
-                value={ordenacao}
-                onChange={(e) => setOrdenacao(e.target.value)}
-                className="ordenar-select"
-              >
-                <option className='opcoes_ordem' value="relevancia">Relevância</option>
-                <option className='opcoes_ordem' value="menorMaior">Preço: Menor para Maior</option>
-                <option className='opcoes_ordem' value="maiorMenor">Preço: Maior para Menor</option>
-              </select>
+            <div className='box_ordem_preco'>
+              <div className="ordenacao">
+                <label htmlFor="ordenar" className="filtro-label">Ordenar por:</label>
+                <select
+                  id="ordenar"
+                  value={ordenacao}
+                  onChange={(e) => setOrdenacao(e.target.value)}
+                  className="ordenar-select"
+                >
+                  <option className='opcoes_ordem' value="relevancia">Relevância</option>
+                  <option className='opcoes_ordem' value="menorMaior">Preço: Menor para Maior</option>
+                  <option className='opcoes_ordem' value="maiorMenor">Preço: Maior para Menor</option>
+                </select>
+              </div>
+
+              <div className="filtro">
+                <p className="filtro-label">Preço:</p>
+
+                <label className="radio-label">
+                  <input
+                    type="radio"
+                    name="preco"
+                    value="todos"
+                    checked={faixaPreco === 'todos'}
+                    onChange={(e) => setFaixaPreco(e.target.value)}
+                  />
+                  Todos
+                </label>
+
+                <label className="radio-label">
+                  <input
+                    type="radio"
+                    name="preco"
+                    value="ate50"
+                    checked={faixaPreco === 'ate50'}
+                    onChange={(e) => setFaixaPreco(e.target.value)}
+                  />
+                  Até R$50,00
+                </label>
+
+                <label className="radio-label">
+                  <input
+                    type="radio"
+                    name="preco"
+                    value="50a100"
+                    checked={faixaPreco === '50a100'}
+                    onChange={(e) => setFaixaPreco(e.target.value)}
+                  />
+                  R$50,00 a R$100,00
+                </label>
+
+                <label className="radio-label">
+                  <input
+                    type="radio"
+                    name="preco"
+                    value="acima100"
+                    checked={faixaPreco === 'acima100'}
+                    onChange={(e) => setFaixaPreco(e.target.value)}
+                  />
+                  Acima de R$100,00
+                </label>
+              </div>
             </div>
 
-            <div className="filtro">
-              <p className="filtro-label">Preço:</p>
+            <div className='box_categoria'>
+              <div className="filtro">
+                <p className="filtro-label">Filtrar por Categoria:</p>
 
-              <label className="radio-label">
-                <input
-                  type="radio"
-                  name="preco"
-                  value="todos"
-                  checked={faixaPreco === 'todos'}
-                  onChange={(e) => setFaixaPreco(e.target.value)}
-                />
-                Todos
-              </label>
+                <label className="radio-label">
+                  <input
+                    type="radio"
+                    name="categoria"
+                    value="todas"
+                    checked={categoria === 'todas'}
+                    onChange={(e) => setCategoria(e.target.value)}
+                  />
+                  Todas
+                </label>
 
-              <label className="radio-label">
-                <input
-                  type="radio"
-                  name="preco"
-                  value="ate50"
-                  checked={faixaPreco === 'ate50'}
-                  onChange={(e) => setFaixaPreco(e.target.value)}
-                />
-                Até R$50,00
-              </label>
+                <label className="radio-label">
+                  <input
+                    type="radio"
+                    name="categoria"
+                    value="Roupão"
+                    checked={categoria === 'Roupão'}
+                    onChange={(e) => setCategoria(e.target.value)}
+                  />
+                  Roupão
+                </label>
 
-              <label className="radio-label">
-                <input
-                  type="radio"
-                  name="preco"
-                  value="50a100"
-                  checked={faixaPreco === '50a100'}
-                  onChange={(e) => setFaixaPreco(e.target.value)}
-                />
-                R$50,00 a R$100,00
-              </label>
+                <label className="radio-label">
+                  <input
+                    type="radio"
+                    name="categoria"
+                    value="Kit"
+                    checked={categoria === 'Kit'}
+                    onChange={(e) => setCategoria(e.target.value)}
+                  />
+                  Kit
+                </label>
 
-              <label className="radio-label">
-                <input
-                  type="radio"
-                  name="preco"
-                  value="acima100"
-                  checked={faixaPreco === 'acima100'}
-                  onChange={(e) => setFaixaPreco(e.target.value)}
-                />
-                Acima de R$100,00
-              </label>
-            </div>
+                <label className="radio-label">
+                  <input
+                    type="radio"
+                    name="categoria"
+                    value="Fraldinha"
+                    checked={categoria === 'Fraldinha'}
+                    onChange={(e) => setCategoria(e.target.value)}
+                  />
+                  Fraldinha
+                </label>
 
-            <div className="filtro">
-              <p className="filtro-label">Filtrar por Categoria:</p>
+                <label className="radio-label">
+                  <input
+                    type="radio"
+                    name="categoria"
+                    value="Manta"
+                    checked={categoria === 'Manta'}
+                    onChange={(e) => setCategoria(e.target.value)}
+                  />
+                  Manta
+                </label>
 
-              <label className="radio-label">
-                <input
-                  type="radio"
-                  name="categoria"
-                  value="todas"
-                  checked={categoria === 'todas'}
-                  onChange={(e) => setCategoria(e.target.value)}
-                />
-                Todas
-              </label>
+                <label className="radio-label">
+                  <input
+                    type="radio"
+                    name="categoria"
+                    value="Avental"
+                    checked={categoria === 'Avental'}
+                    onChange={(e) => setCategoria(e.target.value)}
+                  />
+                  Avental
+                </label>
 
-              <label className="radio-label">
-                <input
-                  type="radio"
-                  name="categoria"
-                  value="Roupão"
-                  checked={categoria === 'Roupão'}
-                  onChange={(e) => setCategoria(e.target.value)}
-                />
-                Roupão
-              </label>
-
-              <label className="radio-label">
-                <input
-                  type="radio"
-                  name="categoria"
-                  value="Kit"
-                  checked={categoria === 'Kit'}
-                  onChange={(e) => setCategoria(e.target.value)}
-                />
-                Kit
-              </label>
-
-              <label className="radio-label">
-                <input
-                  type="radio"
-                  name="categoria"
-                  value="Fraldinha"
-                  checked={categoria === 'Fraldinha'}
-                  onChange={(e) => setCategoria(e.target.value)}
-                />
-                Fraldinha
-              </label>
-
-              <label className="radio-label">
-                <input
-                  type="radio"
-                  name="categoria"
-                  value="Manta"
-                  checked={categoria === 'Manta'}
-                  onChange={(e) => setCategoria(e.target.value)}
-                />
-                Manta
-              </label>
-
-              <label className="radio-label">
-                <input
-                  type="radio"
-                  name="categoria"
-                  value="Avental"
-                  checked={categoria === 'Avental'}
-                  onChange={(e) => setCategoria(e.target.value)}
-                />
-                Avental
-              </label>
-
-              <label className="radio-label">
-                <input
-                  type="radio"
-                  name="categoria"
-                  value="Toalha"
-                  checked={categoria === 'Toalha'}
-                  onChange={(e) => setCategoria(e.target.value)}
-                />
-                Toalha
-              </label>
+                <label className="radio-label">
+                  <input
+                    type="radio"
+                    name="categoria"
+                    value="Toalha"
+                    checked={categoria === 'Toalha'}
+                    onChange={(e) => setCategoria(e.target.value)}
+                  />
+                  Toalha
+                </label>
+              </div>
             </div>
 
           </li>

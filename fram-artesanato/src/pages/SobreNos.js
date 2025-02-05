@@ -13,7 +13,7 @@ const SobreNos = () => {
   };
 
   useEffect(() => {
-    document.title = 'Fram Artesanatos - Sobre Nós';
+    document.title = 'Fran Artesanatos - Sobre Nós';
   }, []);
 
   return (
@@ -39,7 +39,7 @@ const SobreNos = () => {
         <section className="sobre info" id="sobre_nos">
           <h2 className="titulo">Sobre Nós</h2>
           <p className="texto">
-            A Fram Artesanatos nasceu do hobby de uma pequena empreendedora apaixonada por criar. O que começou como uma simples atividade para o coração logo se transformou em uma loja dedicada a transformar sonhos em realidade. Aqui, cada peça é feita com carinho, cuidado e atenção aos detalhes, sempre buscando deixar uma marca especial na vida de nossos clientes.
+            A Fran Artesanatos nasceu do hobby de uma pequena empreendedora apaixonada por criar. O que começou como uma simples atividade para o coração logo se transformou em uma loja dedicada a transformar sonhos em realidade. Aqui, cada peça é feita com carinho, cuidado e atenção aos detalhes, sempre buscando deixar uma marca especial na vida de nossos clientes.
 
             Nossa missão é oferecer itens únicos e personalizados que refletem sua essência, celebram momentos especiais e trazem mais encanto para o seu dia a dia. Cada criação é pensada para contar uma história — a sua!
           </p>
@@ -55,7 +55,7 @@ const SobreNos = () => {
             <a href="https://wa.me/5511942957858" target="_blank" rel="noopener noreferrer">Telefone: +55 (11) 94295-7858</a>
           </p>
           <p className="contato__email contatos">
-            <a href="mailto:framartesanatos00@gmail.com?subject=Duvida&body=Gostaria de saber mais sobre seus serviços." target="_blank" rel="noopener noreferrer">E-Mail: framartesanatos00@gmail.com</a>
+            <a href="mailto:framartesanatos00@gmail.com?subject=Duvida&body=Gostaria de saber mais sobre seus serviços." target="_blank" rel="noopener noreferrer">E-Mail: franartesanatos00@gmail.com</a>
           </p>
         </section>
       </section>

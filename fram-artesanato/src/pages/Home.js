@@ -21,7 +21,7 @@ function Home() {
   const limiteMaisVendidos = 5;
 
   useEffect(() => {
-    document.title = 'Fram Artesanatos - Home';
+    document.title = 'Fran Artesanatos - Home';
   }, []);
 
   useEffect(() => {
@@ -110,7 +110,7 @@ function Home() {
     <main className="principal">
       <section className="principal__novo_produto">
         <h2 className="principal__novo_produto__titulo">
-          Seja bem-vindo(a) à Fram Artesanatos!
+          Seja bem-vindo(a) à Fran Artesanatos!
 
         </h2>
         <p className="principal__novo_produto__p">
@@ -178,7 +178,7 @@ function Home() {
       <section className="background__branco">
         <section className="compartilhar">
           <h2 className="compartilhar__titulo">Compartilhe com a Gente</h2>
-          <h2 className="compartilhar__subtitulo">#Fram<b>artesanatos</b></h2>
+          <h2 className="compartilhar__subtitulo">#Fran<b>artesanatos</b></h2>
           <div className="compartilhar__fotos">
             <img className="compartilhar__imagens" src="https://i.ibb.co/vxjJKv0/Roupao-Azul-Escuro.jpg" alt="Instagram Foto" />
             <img className="compartilhar__imagens" src="https://i.ibb.co/NFTszqD/Avental-Moranguinho.jpg" alt="Instagram Foto" />

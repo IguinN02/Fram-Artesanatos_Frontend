@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const GerenciarProdutos = () => {
   useEffect(() => {
-    document.title = 'Fram Artesanatos - Gerenciamento de Produtos';
+    document.title = 'Fran Artesanatos - Gerenciamento de Produtos';
   }, []);
 
   const [formData, setFormData] = useState({

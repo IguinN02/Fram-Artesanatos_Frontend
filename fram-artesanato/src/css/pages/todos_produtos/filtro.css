@@ -64,7 +64,40 @@
   font-size: 1.5rem;
   font-weight: 500;
   padding: 1rem 0 1rem 2rem;
-  width: 100%;
   color: var(--branco);
   background-color: var(--rosa);
+}
+
+@media screen and (min-width: 1024px) {
+
+  .botao_filtro_texto,
+  .filtro_lista_titulo {
+    font-size: 1.7rem;
+  }
+
+  .filtros.active .botao_filtros {
+    width: 135px;
+    height: 59px;
+    background-size: 24px;
+  }
+}
+
+@media screen and (min-width: 1640px) {
+  .new_design {
+    display: flex;
+    flex-direction: row;
+    margin-top: 11rem;
+    width: min-content;
+  }
+
+  .filtros {
+    height: max-content;
+    border-bottom-right-radius: 32px;
+    margin-left: 0;
+  }
+
+  .produtos {
+    padding-inline: 2rem;
+    margin-top: 0;
+  }
 }

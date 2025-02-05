@@ -19,7 +19,7 @@ function Produto() {
   const { adicionarAoCarrinho, produtoJaNoCarrinho } = useContext(CarrinhoContext);
 
   useEffect(() => {
-    if (nome) document.title = `Fram Artesanatos - ${decodeURIComponent(nome)}`;
+    if (nome) document.title = `Fran Artesanatos - ${decodeURIComponent(nome)}`;
 
     axios.get(`https://fram-artesanatos-backend.onrender.com/produto/${id}`)
       .then(({ data }) => setProduto({

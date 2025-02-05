@@ -193,7 +193,7 @@ const Header = () => {
 
         <h1 className="cabecalho__nav__titulo">
           <Link to="/" onClick={() => setIsMenuOpen(false)}>
-            <b className="titulo_destaque">Fram</b> Artesanatos
+            <b className="titulo_destaque">Fran</b> Artesanatos
           </Link>
         </h1>
 

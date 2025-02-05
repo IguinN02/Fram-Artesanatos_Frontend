@@ -6,7 +6,7 @@ const Carrinho = () => {
   const { carrinho, removerDoCarrinho, finalizarCompra } = useContext(CarrinhoContext);
 
   useEffect(() => {
-    document.title = 'Fram Artesanatos - Carrinho';
+    document.title = 'Fran Artesanatos - Carrinho';
   }, []);
 
   return (
