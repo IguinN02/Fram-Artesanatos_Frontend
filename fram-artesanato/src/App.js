@@ -23,8 +23,8 @@ function App() {
           <Route path="/produto/:id/:nome" element={<Produto />} />
           <Route path="/sobre-nos" element={<SobreNos />} />
           <Route path="/carrinho" element={<Carrinho />} />
-          <Route path="/todosProdutos" element={<TodosProdutos />} />
-          <Route path="/gerenciar-produtos" element={<GerenciarProdutos />} />
+          <Route path="/TodosProdutos" element={<TodosProdutos />} />
+          <Route path="/GerenciarProdutos" element={<GerenciarProdutos />} />
         </Routes>
         <Footer />
       </Router>

@@ -116,7 +116,7 @@ function Home() {
         <p className="principal__novo_produto__p">
           A loja perfeita para quem valoriza itens únicos e personalizados, feitos com carinho para refletir seu estilo e atender às suas necessidades. ❤️
         </p>
-        <Link to="/todosProdutos" className="principal__novo_produto__link">
+        <Link to="/TodosProdutos" className="principal__novo_produto__link">
           Ver Produtos
         </Link>
       </section>

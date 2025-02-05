@@ -90,12 +90,11 @@
 @media screen and (min-width: 1640px) {
   .filtro_lista_item {
     flex-direction: column;
+    gap: 10px;
     padding-inline: 2rem;
-    border-bottom-right-radius: 32px;
     border: 3px solid var(--rosa);
     border-left: 0;
     border-top: 0;
-    gap: 10px;
   }
 
   .ordenacao {
@@ -104,7 +103,7 @@
   }
 
   .box_categoria {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
 
   .filtro-label {

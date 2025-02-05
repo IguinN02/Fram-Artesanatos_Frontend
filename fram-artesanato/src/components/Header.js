@@ -23,7 +23,7 @@ const Header = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchText.trim() !== '') {
-      navigate(`/todosProdutos?search=${encodeURIComponent(searchText)}`);
+      navigate(`/TodosProdutos?search=${encodeURIComponent(searchText)}`);
     }
   };
 
@@ -73,7 +73,7 @@ const Header = () => {
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      navigate(`/todosProdutos?search=${encodeURIComponent(searchText)}`);
+      navigate(`/TodosProdutos?search=${encodeURIComponent(searchText)}`);
       setIsMenuOpen(false);
     }
   };
@@ -102,7 +102,7 @@ const Header = () => {
                   <form className="centralizar search-box">
                     <img
                       className="img_lupa"
-                      src="images/global/icon_lupa.svg"
+                      src="/images/global/icon_lupa.svg"
                       alt="Lupa"
                     />
                     <input
@@ -150,7 +150,7 @@ const Header = () => {
 
                     <Link
                       className="link_pesquisa"
-                      to={`/todosProdutos?search=${encodeURIComponent(searchText)}`}
+                      to={`/TodosProdutos?search=${encodeURIComponent(searchText)}`}
                       onClick={(e) => {
                         if (searchText.trim() !== '') {
                           handleSearch(e);
@@ -175,7 +175,7 @@ const Header = () => {
               {searchText.trim() === "" && (
                 <>
                   <li className="nav-lista__item">
-                    <Link to="/todosProdutos" onClick={() => setIsMenuOpen(false)}>
+                    <Link to="/TodosProdutos" onClick={() => setIsMenuOpen(false)}>
                       <p className="pesquisa_input test_pesq">Todos os Produtos</p>
                     </Link>
                   </li>

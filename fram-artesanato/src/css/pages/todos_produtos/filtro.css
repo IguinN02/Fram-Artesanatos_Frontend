@@ -83,21 +83,7 @@
 }
 
 @media screen and (min-width: 1640px) {
-  .new_design {
-    display: flex;
-    flex-direction: row;
-    margin-top: 11rem;
-    width: min-content;
-  }
-
   .filtros {
-    height: max-content;
-    border-bottom-right-radius: 32px;
-    margin-left: 0;
-  }
-
-  .produtos {
-    padding-inline: 2rem;
-    margin-top: 0;
+    height: min-content;
   }
 }

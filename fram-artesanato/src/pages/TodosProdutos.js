@@ -1,6 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import axios from 'axios';
+import { CarrinhoContext } from '../context/CarrinhoContext';
+import Popup from '../components/Popup';
 
 const TodosProdutos = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,6 +11,8 @@ const TodosProdutos = () => {
   const [ordenacao, setOrdenacao] = useState('relevancia');
   const [categoria, setCategoria] = useState('todas');
   const location = useLocation();
+  const [mensagemPopup, setMensagemPopup] = useState(null);
+  const { adicionarAoCarrinho, produtoJaNoCarrinho } = useContext(CarrinhoContext);
 
   const searchParams = new URLSearchParams(location.search);
   const searchQuery = searchParams.get('search');
@@ -77,6 +81,16 @@ const TodosProdutos = () => {
       return produtosOrdenados.sort(() => Math.random() - 0.5);
     }
     return produtosOrdenados;
+  };
+
+  const adicionarNoCarrinho = (produto) => {
+    if (produtoJaNoCarrinho(produto.idproduto)) {
+      setMensagemPopup('jaAdicionado');
+    } else {
+      adicionarAoCarrinho(produto);
+      setMensagemPopup('adicionado');
+    }
+    setTimeout(() => setMensagemPopup(null), 6000);
   };
 
   return (
@@ -255,22 +269,27 @@ const TodosProdutos = () => {
         )}
 
         {produtos.length > 0 ? (
-          produtos.map(({ idproduto, imagens, nome, descricao, preco }) => (
-            <div key={idproduto} className="produtos__1">
-              <Link to={`/produto/${idproduto}/${encodeURIComponent(nome)}`} className="produto__link">
-                <img className="produto__img" src={imagens} alt={nome} />
+          produtos.map((produto) => (
+            <div key={produto.idproduto} className="produtos__1">
+              <Link to={`/produto/${produto.idproduto}/${encodeURIComponent(produto.nome)}`} className="produto__link">
+                <img className="produto__img" src={produto.imagens} alt={produto.nome} />
                 <div className="produto__info">
-                  <h3 className="produto__titulo">{nome}</h3>
-                  <p className="produto__descricao">{descricao}</p>
-                  <p className="produto__valor">R${Number(preco).toFixed(2)}</p>
+                  <h3 className="produto__titulo">{produto.nome}</h3>
+                  <p className="produto__descricao">{produto.descricao}</p>
+                  <p className="produto__valor">R${Number(produto.preco).toFixed(2)}</p>
                 </div>
               </Link>
+              <button className="adicionar__carrinho add_car_todos" onClick={() => adicionarNoCarrinho(produto)}>
+                Adicionar ao Carrinho
+              </button>
             </div>
           ))
         ) : (
           <p className="sem-produtos">Nenhum produto encontrado com esses critérios.</p>
         )}
       </section>
+
+      <Popup tipo={mensagemPopup} fechar={() => setMensagemPopup(null)} />
     </main>
   );
 };
