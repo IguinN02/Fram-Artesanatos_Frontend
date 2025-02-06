@@ -5,6 +5,7 @@
 .centralizar {
 	display: flex;
 	align-items: center;
+	justify-items: center;
 }
 
 .input__procurar {
@@ -34,7 +35,6 @@
 
 .linha_pesquisa {
 	border: none;
-	margin-bottom: 2rem;
 	margin-left: -200px;
 	height: 2px;
 	background: var(--rosa);
@@ -45,6 +45,10 @@
 	margin-bottom: 1.2rem;
 }
 
+.box_pesquisa {
+	margin-left: -.2rem;
+}
+
 @media screen and (min-width: 1024px) {
 	.pesquisa_input {
 		margin-top: 1rem;
@@ -53,6 +57,10 @@
 
 	.info_pesquisa {
 		font-size: 1.4rem;
+	}
+
+	.box_pesquisa {
+		margin-left: -.4rem;
 	}
 }
 

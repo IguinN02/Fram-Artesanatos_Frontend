@@ -50,8 +50,27 @@
 	transition: 0.5s 0.4s;
 }
 
+.nav-lista li:nth-child(4) a {
+	transition: 0.5s 0.6s;
+}
+
 .test_pesq {
 	width: max-content;
+}
+
+.bi-person-circle {
+	cursor: pointer;
+	width: 20px;
+	color: var(--preto);
+}
+
+.box_conta {
+	display: flex;
+	margin-left: 1.6rem;
+}
+
+.conta_titulo {
+	margin-left: .6rem;
 }
 
 @media screen and (min-width: 1024px) {
@@ -70,6 +89,10 @@
 
 	.titulo__procurar__botao {
 		margin-left: 3rem;
+	}
+
+	.box_conta {
+		margin-left: 3.4rem;
 	}
 }
 
@@ -93,5 +116,13 @@
 
 	.margin__baixo {
 		margin-top: 3rem;
+	}
+
+	.box_conta {
+		margin-left: 6.5rem;
+	}
+
+	.bi-person-circle {
+		width: 30px;
 	}
 }

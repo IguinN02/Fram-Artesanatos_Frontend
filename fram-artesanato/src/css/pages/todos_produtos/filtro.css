@@ -3,7 +3,7 @@
   z-index: 1;
   width: 80px;
   height: 56px;
-  background-color: var(--rosa);
+  background-color: transparent;
   background-size: 20px;
   background-image: url('/public/images/global/close_icon_black.svg');
   background-repeat: no-repeat;
@@ -46,7 +46,7 @@
 .botao_filtros {
   border: none;
   transition: 1s;
-  background-color: var(--branco);
+  background-color: transparent;
 }
 
 .botao_filtro_texto {
