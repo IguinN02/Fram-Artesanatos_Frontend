@@ -10,6 +10,7 @@ const GerenciarProdutos = () => {
     ValorProduto: '',
     DescricaoProduto: '',
     ImgProduto: '',
+    CategoriaProduto: '',
     idproduto: '',
   });
 
@@ -30,6 +31,7 @@ const GerenciarProdutos = () => {
           ValorProduto: formData.ValorProduto,
           DescricaoProduto: formData.DescricaoProduto,
           ImgProduto: formData.ImgProduto,
+          CategoriaProduto: formData.CategoriaProduto,
         }),
       });
       const data = await response.json();
@@ -49,6 +51,7 @@ const GerenciarProdutos = () => {
           ValorProduto: formData.ValorProduto || undefined,
           DescricaoProduto: formData.DescricaoProduto || undefined,
           ImgProduto: formData.ImgProduto || undefined,
+          CategoriaProduto: formData.CategoriaProduto || undefined,
         }),
       });
       const data = await response.json();
@@ -155,6 +158,12 @@ const GerenciarProdutos = () => {
                   className="login__input_gerenciar"
                   name="ImgProduto"
                   placeholder="URL da Imagem"
+                  onChange={handleInputChange}
+                />
+                <input
+                  className="login__input_gerenciar"
+                  name="CategoriaProduto"
+                  placeholder="Categoria"
                   onChange={handleInputChange}
                 />
               </>
