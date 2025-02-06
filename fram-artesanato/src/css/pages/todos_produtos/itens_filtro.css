@@ -61,18 +61,10 @@
   margin-bottom: 0;
 }
 
-.ççç {
-  width: 100%;
-}
-
 @media screen and (min-width: 1024px) {
   .filtro_lista_item {
     flex-direction: row;
     justify-content: space-evenly;
-  }
-
-  .filtro_lista_item div {
-    width: 345px;
   }
 
   .box_categoria {
@@ -99,6 +91,18 @@
     border-top: 0;
   }
 
+  .filtro {
+    padding-block: 1.5rem;
+    padding-inline: 2rem;
+  }
+
+  .radio-label {
+    white-space: nowrap;
+    font-size: 1.2rem;
+    padding: .7rem 1rem;
+  }
+
+
   .ordenacao {
     margin-top: 2.3rem;
     margin-bottom: 3rem;
@@ -109,6 +113,7 @@
   }
 
   .filtro-label {
+    white-space: nowrap;
     font-size: 1.7rem;
     margin-bottom: 10px;
   }

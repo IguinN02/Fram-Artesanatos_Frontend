@@ -4,6 +4,10 @@
 	transition: 1s;
 }
 
+.bi-person-circle {
+	color: #00ff6a;
+}
+
 .cabecalho__nav__menu_hamburguer {
 	background: none;
 	cursor: pointer;
