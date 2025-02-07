@@ -1,53 +1,39 @@
-import React, { useState, useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
+import React, { useState } from "react";
+import { logarUsuario } from "../services/authService";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 
-const Login = () => {
-  const { login } = useContext(AuthContext);
+function Login() {
+  const [form, setForm] = useState({ email: "", password: "" });
+  const [mensagem, setMensagem] = useState("");
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
-  const handleLogin = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
-
-    const response = await login(email, password);
-
-    if (response.success) {
-      navigate("/");
+    const resposta = await logarUsuario(form);
+    if (resposta.error) {
+      setMensagem(resposta.error);
     } else {
-      setError(response.error);
+      localStorage.setItem("token", resposta.token);
+      setMensagem("Login realizado com sucesso!");
+      setTimeout(() => navigate("/perfil"), 2000);
     }
   };
 
   return (
-    <div className="login-container margin_fixed">
+    <div className="margin_fixed">
       <h2>Login</h2>
-      {error && <p className="error">{error}</p>}
-      <form onSubmit={handleLogin}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Senha"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+      {mensagem && <p>{mensagem}</p>}
+      <form onSubmit={handleSubmit}>
+        <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
+        <input type="password" name="password" placeholder="Senha" onChange={handleChange} required />
         <button type="submit">Entrar</button>
       </form>
-      <p>Não tem uma conta? <Link to="/cadastro">Cadastre-se aqui</Link></p>
     </div>
   );
-};
+}
 
 export default Login;
