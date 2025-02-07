@@ -4,6 +4,7 @@ export const cadastrarUsuario = async (dados) => {
   const resposta = await fetch(`${API_URL}/cadastro`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
+    credentials: "include",
     body: JSON.stringify(dados),
   });
   return resposta.json();
@@ -21,6 +22,7 @@ export const logarUsuario = async (dados) => {
 export const buscarPerfil = async (token) => {
   const resposta = await fetch(`${API_URL}/perfil`, {
     method: "GET",
+    mode: 'cors',
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
