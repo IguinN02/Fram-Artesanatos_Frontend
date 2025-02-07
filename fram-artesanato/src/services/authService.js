@@ -1,4 +1,4 @@
-const API_URL = "https://fram-artesanatos-backend.vercel.app";
+const API_URL = "https://fram-artesanatos-backend.vercel.app/usuario";
 
 export const cadastrarUsuario = async (dados) => {
   const resposta = await fetch(`${API_URL}/cadastro`, {
