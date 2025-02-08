@@ -7,9 +7,6 @@ function Login() {
   const [mensagem, setMensagem] = useState("");
   const navigate = useNavigate();
 
-  localStorage.setItem("token", token);
-  window.dispatchEvent(new Event("login"));
-
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -21,7 +18,8 @@ function Login() {
       setMensagem(resposta.error);
     } else {
       localStorage.setItem("token", resposta.token);
-      setMensagem("Login realizado com sucesso!");
+      window.dispatchEvent(new Event("login"));
+      setMensagem("Login realizado com sucesso! Redirecionando...");
       setTimeout(() => navigate("/Perfil"), 2000);
     }
   };
