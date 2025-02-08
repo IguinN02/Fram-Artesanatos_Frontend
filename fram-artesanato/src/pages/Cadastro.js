@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { cadastrarUsuario } from "../services/authService";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Cadastro() {
   const [form, setForm] = useState({ nome: "", email: "", telefone: "", password: "" });
@@ -14,11 +14,13 @@ function Cadastro() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const resposta = await cadastrarUsuario(form);
+
     if (resposta.error) {
       setMensagem(resposta.error);
     } else {
       setMensagem("Cadastro realizado com sucesso!");
-      setTimeout(() => navigate("/login"), 2000);
+      localStorage.setItem("token", resposta.token);
+      setTimeout(() => navigate("/perfil"), 2000);
     }
   };
 
@@ -33,6 +35,9 @@ function Cadastro() {
         <input type="password" name="password" placeholder="Senha" onChange={handleChange} required />
         <button type="submit">Cadastrar</button>
       </form>
+      <Link to="/Login">
+        <p>LOGIN</p>
+      </Link>
     </div>
   );
 }
