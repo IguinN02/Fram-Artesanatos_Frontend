@@ -18,7 +18,7 @@ function Cadastro() {
       setMensagem(resposta.error);
     } else {
       setMensagem("Cadastro realizado com sucesso!");
-      setTimeout(() => navigate("/Login"), 2000);
+      setTimeout(() => navigate("/perfil"), 2000);
     }
   };
 
