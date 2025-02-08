@@ -7,6 +7,9 @@ function Cadastro() {
   const [mensagem, setMensagem] = useState("");
   const navigate = useNavigate();
 
+  localStorage.setItem("token", token);
+  window.dispatchEvent(new Event("login"));
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };

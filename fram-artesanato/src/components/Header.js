@@ -18,8 +18,10 @@ const Header = () => {
 
     checkLoginStatus();
 
-    window.addEventListener("storage", checkLoginStatus);
-    return () => window.removeEventListener("storage", checkLoginStatus);
+    const handleLoginEvent = () => checkLoginStatus();
+    window.addEventListener("login", handleLoginEvent);
+
+    return () => window.removeEventListener("login", handleLoginEvent);
   }, []);
 
   useEffect(() => {
