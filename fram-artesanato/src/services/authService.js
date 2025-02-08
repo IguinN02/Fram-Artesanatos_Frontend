@@ -20,7 +20,7 @@ export const logarUsuario = async (dados) => {
 };
 
 export const buscarPerfil = async (token) => {
-  const resposta = await fetch(`${API_URL}/perfil`, {
+  const resposta = await fetch(`${API_URL}/Perfil`, {
     method: "GET",
     mode: 'cors',
     headers: {

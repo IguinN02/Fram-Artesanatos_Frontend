@@ -13,6 +13,7 @@ import TodosProdutos from "./pages/TodosProdutos.js";
 import GerenciarProdutos from "./pages/GerenciarProdutos.js";
 import Cadastro from "./pages/Cadastro.js";
 import Login from "./pages/Login.js";
+import Perfil from "./pages/Perfil.js";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/GerenciarProdutos" element={<GerenciarProdutos />} />
           <Route path="/Cadastro" element={<Cadastro />} />
           <Route path="/Login" element={<Login />} />
+          <Route path="/Perfil" element={<Perfil />} />
         </Routes>
         <Footer />
       </Router>

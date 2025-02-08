@@ -19,7 +19,7 @@ function Login() {
     } else {
       localStorage.setItem("token", resposta.token);
       setMensagem("Login realizado com sucesso!");
-      setTimeout(() => navigate("/perfil"), 2000);
+      setTimeout(() => navigate("/Perfil"), 2000);
     }
   };
 

@@ -180,7 +180,7 @@ const Header = () => {
                 <>
                   <li className="nav-lista__item">
                     {isLoggedIn ? (
-                      <Link to="/perfil" onClick={() => setIsMenuOpen(false)}>
+                      <Link to="/Perfil" onClick={() => setIsMenuOpen(false)}>
                         <div className="box_conta">
                           <svg
                             xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
