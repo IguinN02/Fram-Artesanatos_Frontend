@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { cadastrarUsuario } from "../services/authService";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Cadastro() {
   const [form, setForm] = useState({ nome: "", email: "", telefone: "", password: "" });
@@ -14,13 +14,11 @@ function Cadastro() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const resposta = await cadastrarUsuario(form);
-
     if (resposta.error) {
       setMensagem(resposta.error);
     } else {
       setMensagem("Cadastro realizado com sucesso!");
-      localStorage.setItem("token", resposta.token);
-      setTimeout(() => navigate("/perfil"), 2000);
+      setTimeout(() => navigate("/login"), 2000);
     }
   };
 
