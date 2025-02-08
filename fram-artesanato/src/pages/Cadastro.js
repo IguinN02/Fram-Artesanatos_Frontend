@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { cadastrarUsuario } from "../services/authService";
+import { cadastrarUsuario, logarUsuario } from "../services/authService";
 import { Link, useNavigate } from "react-router-dom";
 
 function Cadastro() {
@@ -13,12 +13,26 @@ function Cadastro() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const resposta = await cadastrarUsuario(form);
-    if (resposta.error) {
-      setMensagem(resposta.error);
+    const respostaCadastro = await cadastrarUsuario(form);
+
+    if (respostaCadastro.error) {
+      setMensagem(respostaCadastro.error);
     } else {
-      setMensagem("Cadastro realizado com sucesso! Redirecionando...");
-      setTimeout(() => navigate("/Perfil"), 2000); 
+      setMensagem("Cadastro realizado com sucesso! Efetuando login...");
+
+      const respostaLogin = await logarUsuario({
+        email: form.email,
+        password: form.password,
+      });
+
+      if (respostaLogin.error) {
+        setMensagem("Cadastro realizado, mas houve um erro ao fazer login.");
+      } else {
+        localStorage.setItem("token", respostaLogin.token);
+        window.dispatchEvent(new Event("login"));
+        setMensagem("Cadastro e login realizados com sucesso! Redirecionando...");
+        setTimeout(() => navigate("/Perfil"), 2000);
+      }
     }
   };
 
