@@ -11,9 +11,18 @@ const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    setIsLoggedIn(!!token);
+    const checkLoginStatus = () => {
+      const token = localStorage.getItem("token");
+      setIsLoggedIn(!!token);
+    };
 
+    checkLoginStatus();
+
+    window.addEventListener("storage", checkLoginStatus);
+    return () => window.removeEventListener("storage", checkLoginStatus);
+  }, []);
+
+  useEffect(() => {
     const handleResize = () => {
       setProdutos((prevProdutos) =>
         window.innerWidth < 1024 ? prevProdutos.slice(0, 4) : prevProdutos
@@ -23,13 +32,6 @@ const Header = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (searchText.trim() !== '') {
-      navigate(`/TodosProdutos?search=${encodeURIComponent(searchText)}`);
-    }
-  };
 
   const handleInputChange = async (e) => {
     const text = e.target.value;
@@ -156,9 +158,6 @@ const Header = () => {
                       className="link_pesquisa"
                       to={`/TodosProdutos?search=${encodeURIComponent(searchText)}`}
                       onClick={(e) => {
-                        if (searchText.trim() !== '') {
-                          handleSearch(e);
-                        }
                         setIsMenuOpen(false);
                       }}
                     >
