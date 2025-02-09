@@ -35,6 +35,27 @@
 	background-color: var(--branco);
 }
 
+@media screen and (max-width: 350px) {
+	.mobile-menu div {
+		width: 28px;
+		margin: 6px;
+	}
+
+	.cabecalho__nav.active .cabecalho__nav__menu_hamburguer {
+		margin-left: 78vw;
+	}
+
+	.mobile-menu.active .line1 {
+		transform: rotate(-45deg) translate(-5px, 8px);
+		background-color: var(--branco);
+	}
+	
+	.mobile-menu.active .line3 {
+		transform: rotate(45deg) translate(-3px, -7px);
+		background-color: var(--branco);
+	}
+}
+
 @media screen and (min-width: 1640px) {
 	.mobile-menu div {
 		width: 48px;

@@ -57,6 +57,21 @@
   box-shadow: 0 0 15px 5px var(--rosa);
 }
 
+@media screen and (max-width: 350px) {
+  .compartilhar {
+    margin-top: 1.5rem;
+  }
+
+  .compartilhar h2 {
+    font-size: 1rem;
+  }
+
+  .compartilhar__imagens {
+    height: 100px;
+    width: 100px;
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .compartilhar__fotos {
     grid-template-columns: repeat(3, auto);

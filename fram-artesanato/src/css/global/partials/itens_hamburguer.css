@@ -73,7 +73,25 @@
 	margin-left: .6rem;
 }
 
+@media screen and (max-width: 350px) {
+	.nav-lista__titulo {
+		font-size: 1.8rem;
+	}
+
+	.bi-person-circle {
+		width: 18px;
+	}
+
+	.box_conta {
+		align-items: center;
+	}
+}
+
 @media screen and (min-width: 1024px) {
+	.cabecalho__nav.active .nav-lista {
+		clip-path: circle(1640px at 90.1% 8.3%);
+	}
+
 	.nav-lista__titulo {
 		padding: 2rem 0 2rem 4rem;
 		font-size: 2.5rem;
@@ -124,5 +142,11 @@
 
 	.bi-person-circle {
 		width: 30px;
+	}
+}
+
+@media screen and (min-width: 2676px) {
+	.cabecalho__nav.active .nav-lista {
+		clip-path: circle(3000px at 90.1% 8.3%);
 	}
 }

@@ -16,6 +16,10 @@ function Home() {
   const [produtos, setProdutos] = useState([]);
   const [mensagemPopup, setMensagemPopup] = useState(null);
   const { adicionarAoCarrinho, produtoJaNoCarrinho } = useContext(CarrinhoContext);
+  const [swiperConfig, setSwiperConfig] = useState({
+    slidesPerView: window.innerWidth < 351 ? 1 : window.innerWidth < 1024 ? 2 : 3,
+    paginationClickable: window.innerWidth < 351 ? false : true,
+  });
 
   const limiteNovidades = 5;
   const limiteMaisVendidos = 5;
@@ -31,6 +35,18 @@ function Home() {
         setProdutos(produtosEmbaralhados);
       })
       .catch((erro) => console.error("Erro ao buscar produtos:", erro));
+  }, []);
+
+  useEffect(() => {
+    const atualizarSwiperConfig = () => {
+      setSwiperConfig({
+        slidesPerView: window.innerWidth < 351 ? 1 : window.innerWidth < 1024 ? 2 : 3,
+        paginationClickable: window.innerWidth < 351 ? false : true,
+      });
+    };
+
+    window.addEventListener('resize', atualizarSwiperConfig);
+    return () => window.removeEventListener('resize', atualizarSwiperConfig);
   }, []);
 
   const adicionarNoCarrinho = (produto) => {
@@ -63,9 +79,9 @@ function Home() {
             <Swiper
               modules={[Navigation, Pagination]}
               spaceBetween={25}
-              slidesPerView={window.matchMedia('(max-width: 1024px)').matches ? 2 : 3}
+              slidesPerView={swiperConfig.slidesPerView}
               centeredSlides={true}
-              pagination={{ clickable: true }}
+              pagination={{ clickable: swiperConfig.paginationClickable }}
               navigation={{
                 prevEl: `.swiper-button-prev.${tipo}`,
                 nextEl: `.swiper-button-next.${tipo}`,
@@ -111,7 +127,6 @@ function Home() {
       <section className="principal__novo_produto">
         <h2 className="principal__novo_produto__titulo">
           Seja bem-vindo(a) à Fran Artesanatos!
-
         </h2>
         <p className="principal__novo_produto__p">
           A loja perfeita para quem valoriza itens únicos e personalizados, feitos com carinho para refletir seu estilo e atender às suas necessidades. ❤️
@@ -197,7 +212,7 @@ function Home() {
         </section>
       </section>
 
-      <Popup tipo={mensagemPopup} fechar={() => setMensagemPopup(null)} />
+      {mensagemPopup && <Popup tipo={mensagemPopup} fechar={() => setMensagemPopup(null)} />}
     </main>
   );
 }

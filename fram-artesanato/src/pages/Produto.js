@@ -15,6 +15,7 @@ function Produto() {
   const [produto, setProduto] = useState(null);
   const [produtosCarrossel, setProdutosCarrossel] = useState([]);
   const [popupMessage, setPopupMessage] = useState(null);
+  const [slidesPerView, setSlidesPerView] = useState(3);
 
   const { adicionarAoCarrinho, produtoJaNoCarrinho } = useContext(CarrinhoContext);
 
@@ -31,15 +32,32 @@ function Produto() {
     axios.get('https://fram-artesanatos-backend.onrender.com/produto')
       .then(({ data }) => {
         const produtosFiltrados = data
-          .filter((prod) => prod.idproduto !== parseInt(id)) 
+          .filter((prod) => prod.idproduto !== parseInt(id))
           .map(produto => ({
             ...produto,
-            preco: parseFloat(produto.preco), 
+            preco: parseFloat(produto.preco),
           }));
         setProdutosCarrossel(produtosFiltrados.sort(() => 0.5 - Math.random()).slice(0, 5));
       })
       .catch((erro) => console.error("Erro ao buscar produtos para o carrossel:", erro));
   }, [id, nome]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 351) {
+        setSlidesPerView(1);
+      } else if (window.innerWidth < 1024) {
+        setSlidesPerView(2);
+      } else {
+        setSlidesPerView(3);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleAdicionarAoCarrinho = (produto) => {
     const mensagem = produtoJaNoCarrinho(produto.idproduto) ? 'jaAdicionado' : 'adicionado';
@@ -64,12 +82,7 @@ function Produto() {
               <h2 className="nome__produto__principal">{produto.nome}</h2>
               <h3 className="valor__produto__principal">R${Number(produto.preco).toFixed(2)}</h3>
               <p className="descricao__produto__principal">{produto.descricao}</p>
-              <p className="descricao__produto__principal">
-                Todos os nossos itens podem ser personalizados de acordo com suas preferências! Estamos à disposição para transformar suas ideias em realidade! ✨ </p>
-              <button
-                className="adicionar__carrinho__produto"
-                onClick={() => handleAdicionarAoCarrinho(produto)}
-              >
+              <button className="adicionar__carrinho__produto" onClick={() => handleAdicionarAoCarrinho(produto)}>
                 Adicionar ao Carrinho
               </button>
             </div>
@@ -93,7 +106,7 @@ function Produto() {
                   <Swiper
                     modules={[Navigation, Pagination]}
                     spaceBetween={25}
-                    slidesPerView={window.matchMedia("(max-width: 1024px)").matches ? 2 : 3}
+                    slidesPerView={slidesPerView}
                     centeredSlides={true}
                     loop={true}
                     pagination={{ clickable: true }}
@@ -117,10 +130,7 @@ function Produto() {
                           <Link className="valor__produto color" to={`/produto/${idproduto}/${encodeURIComponent(nome)}`}>
                             R${Number(preco).toFixed(2)}
                           </Link>
-                          <button
-                            className="adicionar__carrinho"
-                            onClick={() => handleAdicionarAoCarrinho({ idproduto, nome, descricao, preco, imagens })}
-                          >
+                          <button className="adicionar__carrinho" onClick={() => handleAdicionarAoCarrinho({ idproduto, nome, descricao, preco, imagens })}>
                             Adicionar ao Carrinho
                           </button>
                         </div>

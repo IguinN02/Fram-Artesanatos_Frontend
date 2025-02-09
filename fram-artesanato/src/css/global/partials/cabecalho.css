@@ -1,5 +1,4 @@
 .cabecalho {
-	padding-inline: 1rem;
 	background: var(--branco);
 }
 
@@ -9,6 +8,19 @@
 	align-items: center;
 	display: flex;
 	height: 5rem;
+}
+
+@media screen and (min-width: 351px) {
+	.cabecalho__nav {
+		padding-inline: .2rem;
+	}
+}
+
+@media screen and (min-width: 450px) {
+	.cabecalho__nav {
+		padding-inline: 2rem;
+		padding-left: 1rem;
+	}
 }
 
 @media screen and (min-width: 1024px) {

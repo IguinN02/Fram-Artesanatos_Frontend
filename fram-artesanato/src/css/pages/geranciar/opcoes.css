@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 6vh;
   padding-inline: 15vw;
   gap: 12px;
 }
@@ -45,5 +44,17 @@
 @media screen and (max-width: 499px) {
   .input_radio_gerenciar {
     display: none;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .titulo_gerenciar {
+    margin-top: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .button_gerenciar {
+    margin-bottom: 2rem;
   }
 }

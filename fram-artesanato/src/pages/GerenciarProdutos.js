@@ -87,7 +87,7 @@ const GerenciarProdutos = () => {
     <div>
       <main className="principal margin_fixed">
         <section className="background__branco centralizado_gerenciar">
-          <h2 className="titulo__carrinho titulo__novidades">Gerenciar Produtos</h2>
+          <h2 className="titulo__carrinho titulo__novidades titulo_gerenciar">Gerenciar Produtos</h2>
 
           <div className="login__form_gerenciar">
             <div className='opcao_gerenciar'>

@@ -10,6 +10,13 @@
 	background-color: var(--branco);
 }
 
+@media screen and (max-width: 350px) {
+	.cabecalho__nav__carrinho_img {
+		width: 30px;
+		margin-right: 10px;
+	}
+}
+
 @media screen and (min-width: 1640px) {
 	.cabecalho__nav__carrinho_img {
 		width: 42px;

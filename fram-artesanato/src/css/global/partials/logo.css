@@ -8,6 +8,15 @@
 	color: var(--rosa);
 }
 
+@media screen and (max-width: 350px) {
+	.cabecalho__nav__titulo a {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		font-size: 1.2rem;
+	}
+}
+
 @media screen and (min-width: 1024px) {
 	body::-webkit-scrollbar {
 		width: 12px;

@@ -43,6 +43,12 @@
 	color: var(--preto);
 }
 
+@media screen and (max-width: 350px) {
+	.infos__produto {
+		padding: 0 7vw;
+	}
+}
+
 @media screen and (min-width: 1024px) {
 	.infos__produto {
 		text-align: center;

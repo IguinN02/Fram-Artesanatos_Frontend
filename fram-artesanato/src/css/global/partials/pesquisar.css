@@ -41,12 +41,31 @@
 }
 
 .info_pesquisa {
+	margin-top: 1rem;
 	font-size: 1.2rem;
 	margin-bottom: 1.2rem;
 }
 
 .box_pesquisa {
 	margin-left: -.2rem;
+}
+
+@media screen and (max-width: 350px) {
+	.img_lupa {
+		width: 22px;
+	}
+
+	.test_pesq {
+		font-size: 1rem;
+	}
+
+	.input__procurar {
+		font-size: 1.1rem;
+	}
+
+	.info_pesquisa {
+		font-size: 1rem;
+	}
 }
 
 @media screen and (min-width: 1024px) {

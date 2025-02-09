@@ -23,7 +23,7 @@ const Carrinho = () => {
                 {carrinho.map(({ idproduto, imagens, nome, descricao, preco }) => (
                   <div key={idproduto} className="produto__carrinho">
                     <Link to={`/produto/${idproduto}/${encodeURIComponent(nome)}`} className="produto__link">
-                      <img className="produto__img" src={imagens} alt={nome} />
+                      <img className="produto__img produto__img_car" src={imagens} alt={nome} />
                       <div className="produto__info">
                         <h3 className="produto__titulo">{nome}</h3>
                         <p className="produto__descricao">{descricao}</p>

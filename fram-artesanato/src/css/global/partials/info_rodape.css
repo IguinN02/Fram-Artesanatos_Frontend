@@ -67,10 +67,10 @@
 }
 
 .linha {
-	height: 1px;
+  height: 1px;
   margin-top: 3rem;
-	margin-bottom: 1rem;
-	background: var(--rosa);
+  margin-bottom: 1rem;
+  background: var(--rosa);
 }
 
 .rodape__creditos {
@@ -94,8 +94,26 @@
   text-align: center;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (max-width: 350px) {
+  .redes__sociais__icons {
+    margin-top: 1.5rem;
+    height: 2rem;
+  }
 
+  .rodape__descricao,
+  .rodape__titulos,
+  .rodape__titulos,
+  .rodape__itens__info,
+  .rodape__creditos {
+    font-size: .8rem;
+  }
+
+  .num_email__local a {
+    font-size: .7rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
   .titulo__sub,
   .num_email__local,
   .rodape__mais__info {
@@ -120,5 +138,15 @@
 
   .rodape__descricao {
     padding-right: 50vw;
+  }
+}
+
+@media screen and (min-width: 1640px) {
+  .rede__sociais {
+    padding-inline: 3.5rem;
+  }
+
+  .redes__sociais__icons {
+    height: 3rem;
   }
 }

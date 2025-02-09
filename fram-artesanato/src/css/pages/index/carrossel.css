@@ -44,6 +44,19 @@
 	color: var(--branco);
 }
 
+@media screen and (max-width: 350px) {
+
+	.swiper-button-prev,
+	.swiper-button-next {
+		background: transparent;
+	}
+
+	.swiper-button-prev::before,
+	.swiper-button-next::before {
+		display: none;
+	}
+}
+
 @media screen and (min-width: 1024px) {
 	.img_produto {
 		height: 12rem;

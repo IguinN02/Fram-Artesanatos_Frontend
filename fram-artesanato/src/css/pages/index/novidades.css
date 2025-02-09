@@ -23,6 +23,16 @@
 	margin-top: 3rem;
 }
 
+@media screen and (max-width: 350px) {
+	.titulo__novidades {
+		font-size: 1.35rem;
+	}
+
+	.principal__novidades__subtitulo {
+		font-size: .85rem;
+	}
+}
+
 @media screen and (min-width: 1024px) {
 	.principal__novidades__subtitulo {
 		margin-bottom: -2vh;

@@ -10,10 +10,10 @@ import Produto from "./pages/Produto.js";
 import SobreNos from "./pages/SobreNos.js";
 import Carrinho from "./pages/Carrinho.js";
 import TodosProdutos from "./pages/TodosProdutos.js";
-import GerenciarProdutos from "./pages/GerenciarProdutos.js";
 import Cadastro from "./pages/Cadastro.js";
 import Login from "./pages/Login.js";
 import Perfil from "./pages/Perfil.js";
+import GerenciarProdutos from "./pages/GerenciarProdutos.js";
 
 function App() {
   return (
@@ -27,10 +27,10 @@ function App() {
           <Route path="/sobre-nos" element={<SobreNos />} />
           <Route path="/carrinho" element={<Carrinho />} />
           <Route path="/TodosProdutos" element={<TodosProdutos />} />
-          <Route path="/GerenciarProdutos" element={<GerenciarProdutos />} />
           <Route path="/Cadastro" element={<Cadastro />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/Perfil" element={<Perfil />} />
+          <Route path="/GerenciarProdutos" element={<GerenciarProdutos />} />
         </Routes>
         <Footer />
       </Router>

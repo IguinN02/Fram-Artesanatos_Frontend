@@ -62,13 +62,15 @@ const Header = () => {
       }
 
       const quantidadeMaxima =
-        window.innerWidth > 1024
+        window.innerWidth > 713
           ? window.innerWidth >= 1640
             ? 9
             : window.innerWidth >= 1125
               ? 6
-              : 4
-          : 4;
+              : window.innerWidth >= 1024
+                ? 6
+                : 4
+          : 3;
 
       setProdutos(produtosFiltrados.slice(0, quantidadeMaxima));
     } catch (error) {
@@ -222,7 +224,7 @@ const Header = () => {
 
         <h1 className="cabecalho__nav__titulo">
           <Link to="/" onClick={() => setIsMenuOpen(false)}>
-            <b className="titulo_destaque">Fran</b> Artesanatos
+            <b className="titulo_destaque">Fran</b> <b className="titulo_artesanato">Artesanatos</b>
           </Link>
         </h1>
 

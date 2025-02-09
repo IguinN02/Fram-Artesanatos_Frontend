@@ -42,6 +42,25 @@
 	box-shadow: 10px 0 20px -10px var(--cinza);
 }
 
+@media screen and (max-width: 350px) {
+	.principal__novo_produto {
+		padding: 3rem 6rem 3rem 3rem;
+	}
+
+	.principal__novo_produto__titulo {
+		font-size: 1rem;
+	}
+
+	.principal__novo_produto__p {
+		font-size: .85rem;
+	}
+
+	.principal__novo_produto__link {
+		font-size: 1.15rem;
+		border: .7rem solid var(--rosa);
+	}
+}
+
 @media screen and (min-width: 1024px) {
 	.principal__novo_produto {
 		padding-inline: 16vw;
