@@ -45,8 +45,7 @@ const Popup = ({ tipo, fechar }) => {
       descricao: 'Tente novamente mais tarde.',
       botoes: (
         <>
-          <button onClick={fechar}>Voltar às Compras</button>
-          <Link to="/Home">Voltar</Link>
+          <Link to="/">Voltar</Link>
         </>
       ),
     },
