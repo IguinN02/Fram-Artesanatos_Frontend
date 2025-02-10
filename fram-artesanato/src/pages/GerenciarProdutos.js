@@ -84,98 +84,96 @@ const GerenciarProdutos = () => {
   };
 
   return (
-    <div>
-      <main className="principal margin_fixed">
-        <section className="background__branco centralizado_gerenciar">
-          <h2 className="titulo__carrinho titulo__novidades titulo_gerenciar">Gerenciar Produtos</h2>
+    <main className="principal margin_fixed">
+      <section className="background__branco centralizado_gerenciar">
+        <h2 className="titulo__carrinho titulo__novidades titulo_gerenciar">Gerenciar Produtos</h2>
 
-          <div className="login__form_gerenciar">
-            <div className='opcao_gerenciar'>
-              <label className='radio_gerenciar'>
-                <input
-                  className='input_radio_gerenciar'
-                  type="radio"
-                  name="modo"
-                  value="adicionar"
-                  checked={modo === 'adicionar'}
-                  onChange={(e) => setModo(e.target.value)}
-                />
-                Adicionar
-              </label>
-              <label className='radio_gerenciar meio_gerenciar'>
-                <input
-                  className='input_radio_gerenciar'
-                  type="radio"
-                  name="modo"
-                  value="atualizar"
-                  checked={modo === 'atualizar'}
-                  onChange={(e) => setModo(e.target.value)}
-                />
-                Atualizar
-              </label>
-              <label className='radio_gerenciar'>
-                <input
-                  className='input_radio_gerenciar'
-                  type="radio"
-                  name="modo"
-                  value="excluir"
-                  checked={modo === 'excluir'}
-                  onChange={(e) => setModo(e.target.value)}
-                />
-                Excluir
-              </label>
-            </div>
+        <div className="login__form_gerenciar">
+          <div className='opcao_gerenciar'>
+            <label className='radio_gerenciar'>
+              <input
+                className='input_radio_gerenciar'
+                type="radio"
+                name="modo"
+                value="adicionar"
+                checked={modo === 'adicionar'}
+                onChange={(e) => setModo(e.target.value)}
+              />
+              Adicionar
+            </label>
+            <label className='radio_gerenciar meio_gerenciar'>
+              <input
+                className='input_radio_gerenciar'
+                type="radio"
+                name="modo"
+                value="atualizar"
+                checked={modo === 'atualizar'}
+                onChange={(e) => setModo(e.target.value)}
+              />
+              Atualizar
+            </label>
+            <label className='radio_gerenciar'>
+              <input
+                className='input_radio_gerenciar'
+                type="radio"
+                name="modo"
+                value="excluir"
+                checked={modo === 'excluir'}
+                onChange={(e) => setModo(e.target.value)}
+              />
+              Excluir
+            </label>
+          </div>
 
-            {(modo !== 'adicionar') && (
+          {(modo !== 'adicionar') && (
+            <input
+              className="login__input_gerenciar"
+              name="idproduto"
+              placeholder="ID do Produto"
+              onChange={handleInputChange}
+            />
+          )}
+          {(modo !== 'excluir') && (
+            <>
               <input
                 className="login__input_gerenciar"
-                name="idproduto"
-                placeholder="ID do Produto"
+                name="NomeProduto"
+                placeholder="Nome do Produto"
                 onChange={handleInputChange}
               />
-            )}
-            {(modo !== 'excluir') && (
-              <>
-                <input
-                  className="login__input_gerenciar"
-                  name="NomeProduto"
-                  placeholder="Nome do Produto"
-                  onChange={handleInputChange}
-                />
-                <input
-                  className="login__input_gerenciar"
-                  name="ValorProduto"
-                  placeholder="Preço"
-                  onChange={handleInputChange}
-                />
-                <input
-                  className="login__input_gerenciar"
-                  name="DescricaoProduto"
-                  placeholder="Descrição"
-                  onChange={handleInputChange}
-                />
-                <input
-                  className="login__input_gerenciar"
-                  name="ImgProduto"
-                  placeholder="URL da Imagem"
-                  onChange={handleInputChange}
-                />
-                <input
-                  className="login__input_gerenciar"
-                  name="CategoriaProduto"
-                  placeholder="Categoria"
-                  onChange={handleInputChange}
-                />
-              </>
-            )}
+              <input
+                className="login__input_gerenciar"
+                name="ValorProduto"
+                placeholder="Preço"
+                onChange={handleInputChange}
+              />
+              <input
+                className="login__input_gerenciar"
+                name="DescricaoProduto"
+                placeholder="Descrição"
+                onChange={handleInputChange}
+              />
+              <input
+                className="login__input_gerenciar"
+                name="ImgProduto"
+                placeholder="URL da Imagem"
+                onChange={handleInputChange}
+              />
+              <input
+                className="login__input_gerenciar"
+                name="CategoriaProduto"
+                placeholder="Categoria"
+                onChange={handleInputChange}
+              />
+            </>
+          )}
 
-            <button className="button_gerenciar" onClick={handleSubmit}>
-              {modo === 'adicionar' ? 'Salvar' : modo === 'atualizar' ? 'Atualizar' : 'Excluir'}
-            </button>
-          </div>
-        </section>
-      </main>
-    </div>
+          <button className="button_gerenciar" onClick={handleSubmit}>
+            {modo === 'adicionar' ? 'Salvar' : modo === 'atualizar' ? 'Atualizar' : 'Excluir'}
+          </button>
+        </div>
+      </section>
+    </main>
   );
 };
 

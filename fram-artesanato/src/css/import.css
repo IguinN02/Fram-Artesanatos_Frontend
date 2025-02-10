@@ -25,3 +25,6 @@
 
 /* gerenciar_produtos */
 @import url("../css/pages/geranciar/opcoes.css");
+
+/* Cadastro */
+@import url("../css/pages/cadastro/cadastro.css");
