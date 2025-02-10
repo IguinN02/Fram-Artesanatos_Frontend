@@ -43,7 +43,12 @@ const Popup = ({ tipo, fechar }) => {
     Ops: {
       titulo: 'Opa, algo deu errado',
       descricao: 'Tente novamente mais tarde.',
-      botoes: <button onClick={fechar}>Ver campos</button>,
+      botoes: (
+        <>
+          <button onClick={fechar}>Voltar às Compras</button>
+          <Link to="/Home">Voltar</Link>
+        </>
+      ),
     },
   };
 
