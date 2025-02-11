@@ -4,7 +4,6 @@ export const cadastrarUsuario = async (dados) => {
   const resposta = await fetch(`${API_URL}/cadastro`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    credentials: "include",
     body: JSON.stringify(dados),
   });
   return resposta.json();
