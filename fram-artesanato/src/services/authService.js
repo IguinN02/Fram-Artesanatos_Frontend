@@ -1,7 +1,7 @@
 const API_URL = process.env.REACT_APP_API_URL;
 
 export const cadastrarUsuario = async (dados) => {
-  const resposta = await fetch(`${API_URL}/Cadastro`, {
+  const resposta = await fetch(`${API_URL}/cadastro`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     credentials: "include",
@@ -11,7 +11,7 @@ export const cadastrarUsuario = async (dados) => {
 };
 
 export const logarUsuario = async (dados) => {
-  const resposta = await fetch(`${API_URL}/Login`, {
+  const resposta = await fetch(`${API_URL}/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(dados),
@@ -20,7 +20,7 @@ export const logarUsuario = async (dados) => {
 };
 
 export const buscarPerfil = async (token) => {
-  const resposta = await fetch(`${API_URL}/Perfil`, {
+  const resposta = await fetch(`${API_URL}/perfil`, {
     method: "GET",
     mode: 'cors',
     headers: {
